@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://laoliang126.github.io</id>
     <title>Gridea</title>
-    <updated>2020-12-14T11:37:14.741Z</updated>
+    <updated>2020-12-15T01:01:36.681Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://laoliang126.github.io"/>
     <link rel="self" href="https://laoliang126.github.io/atom.xml"/>
@@ -11,12 +11,97 @@
     <icon>https://laoliang126.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[1]]></title>
-        <id>https://laoliang126.github.io/post/1/</id>
-        <link href="https://laoliang126.github.io/post/1/">
+        <title type="html"><![CDATA[信息收集笔记]]></title>
+        <id>https://laoliang126.github.io/post/xin-xi-shou-ji-bi-ji/</id>
+        <link href="https://laoliang126.github.io/post/xin-xi-shou-ji-bi-ji/">
         </link>
-        <updated>2020-12-14T11:34:49.000Z</updated>
-        <content type="html"><![CDATA[<p>1</p>
+        <updated>2020-12-15T00:56:55.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://laoliang126.github.io/post-images/1607993981960.jpg" alt="" loading="lazy"></figure>
+<p>被动信息收集·公开渠道可获得的信息·与目标系统不产生直接交互·尽量避免留下一切痕迹-<br>
+信息收集内容<br>
+IP地址段<br>
+·域名信息·<br>
+邮件地址·<br>
+文档图片数据·<br>
+公司地址·<br>
+公司组织架构<br>
+·联系电话/传真号码·人员姓名/职务<br>
+·目标系统使用的技术架构·公开的商业信息</p>
+<p>信息用途<br>
+·用信息描述目标·发现<br>
+·社会工程学攻击·物理缺口<br>
+信息收集——DNS<br>
+FQDN和域名<br>
+FQDN：www.baidu.com<br>
+域名:baidu.com</p>
+<p>dns客户端——dns服务器是叫递归查询<br>
+dns服务器——根域服务器和com服务器到www，xxx.com服务器是叫迭代查询<br>
+nslookup www.sina.com<br>
+server</p>
+<p>nslookup -type=ns example.com 156.154.70.22<br>
+dig @8.8.8.8 www.sina.com.mx<br>
+dig www.sina.com any<br>
+dig noall + answer -x 8.8.8.8<br>
+bind版本信息dig +noall +answer txt chaos VERSION.BIND @ns3.dnsv4.com<br>
+dns追踪 dig +trace example.com</p>
+<p>q=type,作用一样<br>
+ptr反向解析，将IP解析成域名<br>
+spf也是反解析</p>
+<p>1.A记录<br>
+又称IP指向，用户可以在此设置子域名并指向到自己的目标主机地址上，从而实现通过域名找到服务器。<br>
+说明：·指向的目标主机地址类型只能使用IP地址；<br>
+2. CNAME<br>
+通常称别名指向。可以为一个主机设置别名。比如设置test.mydomain.com，用来指向一个主机www.rddns.com那么以后就可以用test.mydomain.com来代替访问www.rddns.com了。<br>
+说明：CNAME的目标主机地址只能使用主机名，不能使用IP地址；·主机名前不能有任何其他前缀，如：http://等是不被允许的；·A记录优先于CNAME记录。即如果一个主机地址同时存在A记录和CNAME记录，则CNAME记录不生效<br>
+3.MX记录<br>
+邮件交换记录。用于将以该域名为结尾的电子邮件指向对应的邮件服务器以进行处理。如：用户所用的邮件是以域名mydomain.com为结尾的，则需要在管理界面中添加该域名的MX记录来处理所有以@mydomain.com结尾的邮件。<br>
+说明：MX记录可以使用主机名或IP地址；·MX记录可以通过设置优先级实现主辅服务器设置，“优先级”中的数字越小表示级别越高。也可以使用相同优先级达到负载均衡的目的；·如果在“主机名”中填入子域名则此MX记录只对该子域名生效。0<br>
+4.NS记录<br>
+解析服务器记录。用来表明由哪台服务器对该域名进行解析。这里的NS记录只对子域名生效。<br>
+例如用户希望由12.34.56.78这台服务器解析news.mydomain.com，则需要设置news.mydomain.com的NS记录。<br>
+说明：·“优先级”中的数字越小表示级别越高；·“IP地址/主机名”中既可以填写IP地址，也可以填写像ns.mydomain.com这样的主机地址，但必须保证该主机地址有效。<br>
+如，将news.mydomain.com的NS记录指向到ns.mydomain.com，在设置NS记录的同时还需要设置ns.mydomain.com的指向，<br>
+否则NS记录将无法正常解析；·NS记录优先于A记录。即，如果一个主机地址同时存在NS记录和A记录，则A记录不生效。这里的NS记录只对子域名生效。<br>
+是把域名指向网站空间IP，让人们通过注册的域名可以方便地访问到网站的一种服务。<br>
+sit type = a 查询A记录<br>
+3.NS记录NS(Name Server）记录是域名服务器记录，用来指定该域名由哪个DNS服务器来进行解析。您注册域名时，总有默认的DNS服务器，每个注册的域名都是由一个DNS域名服务器来进行解析的，DNS服务器NS记录地址一般以以下的形式出现:<br>
+mydomain.com这个域名的MX记录，如果MX记录存在，用户计算机就将邮件发送到MX记录所指定的邮件服务器上。<br>
+di'g- x查ptr记录<br>
+dig sina.com any 8.8.4.4<br>
+多尝试一下不同的dns服务器来进行域名查询<br>
+智能DNS不同地区会是不同的域名服务器<br>
+dig +noall (表示什么结果也不会显示)mail.163.com any<br>
+dig +noall answer txt（域名记录） chaos（类型） VERSION.BIND（bind版本）@ens3.dnsv4.com</p>
+<p>SHODAN<br>
+·搜索联网的设备</p>
+<ul>
+<li>Banner: http、ftp、ssh、telnet- https://www.shodan.io/<br>
+常见filter:<br>
+net (192.168.20.1)city<br>
+country (CN、US)’port (80、21、22、23)<br>
+os<br>
+Hostname (主机或域名)<br>
+hostname：搜索指定的主机或域名，例如 hostname:&quot;google&quot;<br>
+port：搜索指定的端口或服务，例如 port:&quot;21&quot;<br>
+country：搜索指定的国家，例如 country:&quot;CN&quot;<br>
+city：<br>
+搜索指定的城市，例如 city:&quot;Hefei&quot;<br>
+org：搜索指定的组织或公司，例如 org:&quot;google&quot;<br>
+isp：搜索指定的ISP供应商，例如 isp:&quot;China Telecom&quot;<br>
+product：搜索指定的操作系统/软件/平台，例如 product:&quot;Apache httpd&quot;<br>
+version：搜索指定的软件版本，例如 version:&quot;1.6.2&quot;<br>
+geo：搜索指定的地理位置，参数为经纬度，例如 geo:&quot;31.8639, 117.2808&quot;<br>
+before/after：搜索指定收录时间前后的数据，格式为dd-mm-yy，例如 before:&quot;11-11-15&quot;<br>
+net：搜索指定的IP地址或子网，例如 net:&quot;210.45.240.0/24&quot;<br>
+GOOGLE搜索<br>
+。+充值-支付 要充值不要支付<br>
+“支付 充值”既要充值也要支付<br>
+·北京的电子商务公司——北京intitle:标题里面有北京电子商务intext:内容里面有电子商务法人intext:电话内容里面有电话·<br>
+阿里网站上的北京公司联系人——北京site:alibaba.com<br>
+在阿里巴巴的网站里面搜索inurl:contact在url里面有contact这个关键词的<br>
+·塞班司法案的PDF文档——SOx filetype:pdf文件名是sox文件类型是PDF<br>
+·法国的支付相关页面—payment site:fr搜索法国网站<img src="https://laoliang126.github.io/post-images/1607993926004.jpeg" alt="" loading="lazy"></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
