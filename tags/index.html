@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1608040647875">
+<link rel="shortcut icon" href="/favicon.ico?v=1608082127898">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -194,7 +194,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">1</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -251,12 +251,10 @@
         
       
         
-      
-        
           
             
       
-      <a class="cloud-tag" href="https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/tag/FhMnNGYoP/" rel="1">Gridea</a>
+      <a class="cloud-tag" href="https://https://laoliang126.github.io/tag/FhMnNGYoP/" rel="1">Gridea</a>
     
   </div>
 </div>
@@ -820,7 +818,7 @@
 		}
 		$(document).ready(function () {
 			var AIimgSrc = [];
-			let chooseLive2d = 'hijiki'
+			let chooseLive2d = 'tororo'
 			if (chooseLive2d === 'histoire') {
 				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_00.png");
 				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_01.png");
@@ -1080,98 +1078,7 @@
     <div class="result" id="result">
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/post/xin-xi-shou-ji-bi-ji/"" data-c="
-          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/post-images/1607993981960.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;被动信息收集·公开渠道可获得的信息·与目标系统不产生直接交互·尽量避免留下一切痕迹-&lt;br&gt;
-信息收集内容&lt;br&gt;
-IP地址段&lt;br&gt;
-·域名信息·&lt;br&gt;
-邮件地址·&lt;br&gt;
-文档图片数据·&lt;br&gt;
-公司地址·&lt;br&gt;
-公司组织架构&lt;br&gt;
-·联系电话/传真号码·人员姓名/职务&lt;br&gt;
-·目标系统使用的技术架构·公开的商业信息&lt;/p&gt;
-&lt;p&gt;信息用途&lt;br&gt;
-·用信息描述目标·发现&lt;br&gt;
-·社会工程学攻击·物理缺口&lt;br&gt;
-信息收集——DNS&lt;br&gt;
-FQDN和域名&lt;br&gt;
-FQDN：www.baidu.com&lt;br&gt;
-域名:baidu.com&lt;/p&gt;
-&lt;p&gt;dns客户端——dns服务器是叫递归查询&lt;br&gt;
-dns服务器——根域服务器和com服务器到www，xxx.com服务器是叫迭代查询&lt;br&gt;
-nslookup www.sina.com&lt;br&gt;
-server&lt;/p&gt;
-&lt;p&gt;nslookup -type=ns example.com 156.154.70.22&lt;br&gt;
-dig @8.8.8.8 www.sina.com.mx&lt;br&gt;
-dig www.sina.com any&lt;br&gt;
-dig noall + answer -x 8.8.8.8&lt;br&gt;
-bind版本信息dig +noall +answer txt chaos VERSION.BIND @ns3.dnsv4.com&lt;br&gt;
-dns追踪 dig +trace example.com&lt;/p&gt;
-&lt;p&gt;q=type,作用一样&lt;br&gt;
-ptr反向解析，将IP解析成域名&lt;br&gt;
-spf也是反解析&lt;/p&gt;
-&lt;p&gt;1.A记录&lt;br&gt;
-又称IP指向，用户可以在此设置子域名并指向到自己的目标主机地址上，从而实现通过域名找到服务器。&lt;br&gt;
-说明：·指向的目标主机地址类型只能使用IP地址；&lt;br&gt;
-2. CNAME&lt;br&gt;
-通常称别名指向。可以为一个主机设置别名。比如设置test.mydomain.com，用来指向一个主机www.rddns.com那么以后就可以用test.mydomain.com来代替访问www.rddns.com了。&lt;br&gt;
-说明：CNAME的目标主机地址只能使用主机名，不能使用IP地址；·主机名前不能有任何其他前缀，如：http://等是不被允许的；·A记录优先于CNAME记录。即如果一个主机地址同时存在A记录和CNAME记录，则CNAME记录不生效&lt;br&gt;
-3.MX记录&lt;br&gt;
-邮件交换记录。用于将以该域名为结尾的电子邮件指向对应的邮件服务器以进行处理。如：用户所用的邮件是以域名mydomain.com为结尾的，则需要在管理界面中添加该域名的MX记录来处理所有以@mydomain.com结尾的邮件。&lt;br&gt;
-说明：MX记录可以使用主机名或IP地址；·MX记录可以通过设置优先级实现主辅服务器设置，“优先级”中的数字越小表示级别越高。也可以使用相同优先级达到负载均衡的目的；·如果在“主机名”中填入子域名则此MX记录只对该子域名生效。0&lt;br&gt;
-4.NS记录&lt;br&gt;
-解析服务器记录。用来表明由哪台服务器对该域名进行解析。这里的NS记录只对子域名生效。&lt;br&gt;
-例如用户希望由12.34.56.78这台服务器解析news.mydomain.com，则需要设置news.mydomain.com的NS记录。&lt;br&gt;
-说明：·“优先级”中的数字越小表示级别越高；·“IP地址/主机名”中既可以填写IP地址，也可以填写像ns.mydomain.com这样的主机地址，但必须保证该主机地址有效。&lt;br&gt;
-如，将news.mydomain.com的NS记录指向到ns.mydomain.com，在设置NS记录的同时还需要设置ns.mydomain.com的指向，&lt;br&gt;
-否则NS记录将无法正常解析；·NS记录优先于A记录。即，如果一个主机地址同时存在NS记录和A记录，则A记录不生效。这里的NS记录只对子域名生效。&lt;br&gt;
-是把域名指向网站空间IP，让人们通过注册的域名可以方便地访问到网站的一种服务。&lt;br&gt;
-sit type = a 查询A记录&lt;br&gt;
-3.NS记录NS(Name Server）记录是域名服务器记录，用来指定该域名由哪个DNS服务器来进行解析。您注册域名时，总有默认的DNS服务器，每个注册的域名都是由一个DNS域名服务器来进行解析的，DNS服务器NS记录地址一般以以下的形式出现:&lt;br&gt;
-mydomain.com这个域名的MX记录，如果MX记录存在，用户计算机就将邮件发送到MX记录所指定的邮件服务器上。&lt;br&gt;
-di&#39;g- x查ptr记录&lt;br&gt;
-dig sina.com any 8.8.4.4&lt;br&gt;
-多尝试一下不同的dns服务器来进行域名查询&lt;br&gt;
-智能DNS不同地区会是不同的域名服务器&lt;br&gt;
-dig +noall (表示什么结果也不会显示)mail.163.com any&lt;br&gt;
-dig +noall answer txt（域名记录） chaos（类型） VERSION.BIND（bind版本）@ens3.dnsv4.com&lt;/p&gt;
-&lt;p&gt;SHODAN&lt;br&gt;
-·搜索联网的设备&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Banner: http、ftp、ssh、telnet- https://www.shodan.io/&lt;br&gt;
-常见filter:&lt;br&gt;
-net (192.168.20.1)city&lt;br&gt;
-country (CN、US)’port (80、21、22、23)&lt;br&gt;
-os&lt;br&gt;
-Hostname (主机或域名)&lt;br&gt;
-hostname：搜索指定的主机或域名，例如 hostname:&amp;quot;google&amp;quot;&lt;br&gt;
-port：搜索指定的端口或服务，例如 port:&amp;quot;21&amp;quot;&lt;br&gt;
-country：搜索指定的国家，例如 country:&amp;quot;CN&amp;quot;&lt;br&gt;
-city：&lt;br&gt;
-搜索指定的城市，例如 city:&amp;quot;Hefei&amp;quot;&lt;br&gt;
-org：搜索指定的组织或公司，例如 org:&amp;quot;google&amp;quot;&lt;br&gt;
-isp：搜索指定的ISP供应商，例如 isp:&amp;quot;China Telecom&amp;quot;&lt;br&gt;
-product：搜索指定的操作系统/软件/平台，例如 product:&amp;quot;Apache httpd&amp;quot;&lt;br&gt;
-version：搜索指定的软件版本，例如 version:&amp;quot;1.6.2&amp;quot;&lt;br&gt;
-geo：搜索指定的地理位置，参数为经纬度，例如 geo:&amp;quot;31.8639, 117.2808&amp;quot;&lt;br&gt;
-before/after：搜索指定收录时间前后的数据，格式为dd-mm-yy，例如 before:&amp;quot;11-11-15&amp;quot;&lt;br&gt;
-net：搜索指定的IP地址或子网，例如 net:&amp;quot;210.45.240.0/24&amp;quot;&lt;br&gt;
-GOOGLE搜索&lt;br&gt;
-。+充值-支付 要充值不要支付&lt;br&gt;
-“支付 充值”既要充值也要支付&lt;br&gt;
-·北京的电子商务公司——北京intitle:标题里面有北京电子商务intext:内容里面有电子商务法人intext:电话内容里面有电话·&lt;br&gt;
-阿里网站上的北京公司联系人——北京site:alibaba.com&lt;br&gt;
-在阿里巴巴的网站里面搜索inurl:contact在url里面有contact这个关键词的&lt;br&gt;
-·塞班司法案的PDF文档——SOx filetype:pdf文件名是sox文件类型是PDF&lt;br&gt;
-·法国的支付相关页面—payment site:fr搜索法国网站&lt;img src=&#34;https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/post-images/1607993926004.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">信息收集笔记</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/post/about/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://https://laoliang126.github.io/post/about/"" data-c="
           &lt;blockquote&gt;
 &lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1183,7 +1090,7 @@ GOOGLE搜索&lt;br&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://https://coding-pages-bucket-3499954-8123647-7899-417478-1304521977.cos-website.ap-hongkong.myqcloud.com/post/hello-gridea/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://https://laoliang126.github.io/post/hello-gridea/"" data-c="
           &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
 ✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
 &lt;!-- more --&gt;
