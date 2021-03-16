@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://laoliang.shop</id>
     <title>破站真水</title>
-    <updated>2021-03-16T11:03:05.136Z</updated>
+    <updated>2021-03-16T11:03:55.418Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://laoliang.shop"/>
     <link rel="self" href="https://laoliang.shop/atom.xml"/>
@@ -10,4 +10,13 @@
     <logo>https://laoliang.shop/images/avatar.png</logo>
     <icon>https://laoliang.shop/favicon.ico</icon>
     <rights>All rights reserved 2021, 破站真水</rights>
+    <entry>
+        <title type="html"><![CDATA[1]]></title>
+        <id>https://laoliang.shop/post/1/</id>
+        <link href="https://laoliang.shop/post/1/">
+        </link>
+        <updated>2021-03-16T10:58:31.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://blog-1305208649.cos.ap-beijing.myqcloud.com/d940a02861b90cf85a32800d32d77dca8b02e074.jpg@1320w_926h.jpg" alt="d940a02861b90cf85a32800d32d77dca8b02e074.jpg@1320w_926h" loading="lazy"></figure>
+]]></content>
+    </entry>
 </feed>
