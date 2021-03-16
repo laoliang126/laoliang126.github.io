@@ -9,7 +9,7 @@
 <meta name="description" content="不断的折腾，才能领悟作死的真谛！！！">
 <meta name="theme-color" content="#000">
 <title>破站真水</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1615895199924">
+<link rel="shortcut icon" href="/favicon.ico?v=1615897804255">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -195,19 +195,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">0</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">0</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">0</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -243,27 +243,9 @@
   <div class="archive-timeline-box">
     <div class="archive-timeline-title">
       
-        <h2 class="language" data-lan="archives" data-count="1">非常好！目前共计1篇日志，继续努力！</h2>
+        <h2 class="language" data-lan="no-archives">您目前还没有记录日志哟~~~</h2>
       
     </div>
-    
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2021</h2>
-        </div>    
-        
-      
-      <a href="https://laoliang.shop/post/1/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              03-16
-              <small>死杠存在Dom型xss漏洞的片段js代码</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
     
   </div>
   
@@ -271,12 +253,6 @@
   <ul class="pagination-ul">
     
     
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
       
     
     
@@ -1053,40 +1029,6 @@
       <hr>
     </div>
     <div class="result" id="result">
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://laoliang.shop/post/1/"" data-c="
-          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/d940a02861b90cf85a32800d32d77dca8b02e074.jpg@1320w_926h.jpg&#34; alt=&#34;d940a02861b90cf85a32800d32d77dca8b02e074.jpg@1320w_926h&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
-var pos=document.URL.indexOf(&amp;quot;name=&amp;quot;)+5;
-var username = unescape(document.URL.substring(pos,document.URL.length));
-var r=&#39;&amp;lt;b&amp;gt;&#39;+username+&#39;&amp;lt;/b&amp;gt;&#39;
-document.write(r);
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;第一行和最后一行的&lt;script&gt;和&lt;/script&gt;中间是JavaScript的代码&lt;/p&gt;
-&lt;p&gt;var是声明其变量，也就是相当于指明接下来的就是其变量，此次出现的有其变量pos,username,r；我们从变量pos开始看，Document 对象属性中有URL,而第二行当中有document.URL，也就是返回当前文档的 URL。而indexOf的意思是可返回某个指定的字符串值在字符串中首次出现的位置。下列由https://www.w3school.com.cn/jsref/jsref_indexOf.asp复制粘贴&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;stringObject.indexOf(searchvalue,fromindex)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;而在其中我们可以判断searchvalue值是必须的，而其代码里面是name=,而且省略了fromindex，因为所以科学道理他是从字符串的首字符开始，也就是当前文档的 URL是字符串，从其URL的首字符开始，而其name=是正好是五个字符，也就是将返回&#39;name=&#39;后面的传参的参数位置，也就是以数字形式出现&lt;/p&gt;
-&lt;p&gt;再从变量username&lt;/p&gt;
-&lt;p&gt;unescape(string)函数可对通过 escape() 编码的字符串进行解码。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;escape（）编码是指url编码，unescape也就是将url编码进行解码，而substring() 意思是用于提取字符串中介于两个指定下标之间的字符。而其语法；substring() 方法用于提取字符串中介于两个指定下标之间的字符。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-javacript&#34;&gt;stringObject.substring(start,stop)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;start位置上是变量pos,也就是其传参参数的初始位置；而其document.URL.length是指当前文档的 url的整体长度，也就是将其截取其传参，然后进行url解码；而下面的变量r的值就是其&lt;b&gt;+传参的值+&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;然后特别注意的是其document.write也就是引发的罪魁祸首，他是在文档中输出 ，不管是页面，还是网页前端代码都会输出其传参&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;让其标签风格弹窗——&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://blog-1305208649.cos.ap-beijing.myqcloud.com/clipboard.png&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;如果一旦发现documen.write属性一般即有可能存在其dom型xss&lt;/p&gt;
-&lt;p&gt;后期将会连续更新——&lt;/p&gt;
-">死杠存在Dom型xss漏洞的片段js代码</a>
-      </div>
       
     </div>
     <div class="page">
