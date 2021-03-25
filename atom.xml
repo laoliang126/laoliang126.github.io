@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>laoliang.shop</id>
+    <title>laoliang</title>
+    <updated>2021-03-25T01:25:08.162Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="laoliang.shop"/>
+    <link rel="self" href="laoliang.shop/atom.xml"/>
+    <rights>All rights reserved 2021, laoliang</rights>
+    <entry>
+        <title type="html"><![CDATA[1]]></title>
+        <id>https://laoliang.shop/1</id>
+        <link href="https://laoliang.shop/1"/>
+        <updated>2021-03-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1
+]]></summary>
+        <content type="html"><![CDATA[<p>1</p>
+]]></content>
+    </entry>
+</feed>
